@@ -93,10 +93,67 @@
                         <input class="form__input" type="text" name="exploit" placeholder="Pista Exploit" id="exploit">
                     </div>
                 </div>
-                <div class="practice__btn btn btn--white">
-                <button type="button" onclick="comprobarRespuestas()">Comprobar Respuestas</button>
-            </div>
+               
+                <input type="button" class="practice__btn btn btn--white button" onclick="comprobarRespuestas()" value="Comprobar Respuestas">
+            
+            
+            
+                <div id="respuestaIncorrecta" style="color: red;"></div>
+                <div id="respuestaCorrecta" style="color: rgb(45, 230, 70)(0, 255, 34);"></div>
             </form>
+            
+            
+            
+            <script>
+                var puntos = 0; // Inicializamos los puntos
+
+function comprobarRespuestas() {
+    // Obtener los elementos del formulario
+    var form = document.querySelector('.form');
+    var inputs = form.querySelectorAll('.form__input');
+    var labels = form.querySelectorAll('.form__label');
+    
+    // Definir las respuestas correctas y sus respectivos puntos
+    var respuestasCorrectas = {
+        'ssh': { respuesta: '1234', puntos: 150 },
+        'contraseña': { respuesta: '123', puntos: 300 },
+        'exploit': { respuesta: '12', puntos: 550 }
+    };
+
+    // Reiniciar los puntos antes de evaluar las respuestas
+    puntos = 0;
+
+    // Iterar sobre los elementos del formulario
+    inputs.forEach(function(input, index) {
+        var nombreCampo = input.name;
+        var respuestaUsuario = input.value;
+        var respuestaCorrectaCampo = respuestasCorrectas[nombreCampo].respuesta;
+
+        // Comprobar la respuesta
+        if (respuestaUsuario === respuestaCorrectaCampo) {
+            // Sumar los puntos si la respuesta es correcta
+            puntos += respuestasCorrectas[nombreCampo].puntos;
+
+            // Mostrar mensaje de respuesta correcta
+            var mensajeRespuestaCorrecta = document.getElementById('respuestaCorrecta');
+            mensajeRespuestaCorrecta.innerText = 'Respuesta correcta ( ' + nombreCampo + ' )';
+            setTimeout(function() {
+                mensajeRespuestaCorrecta.innerText = '';
+            }, 3000);
+        } else {
+            
+        }
+
+        // Actualizar el texto del label con la respuesta correcta
+        var puntosLabel = respuestasCorrectas[nombreCampo].puntos;
+        labels[index].querySelector('.form__label--points').innerText = puntosLabel + ' pts C/D';
+    });
+
+    // Actualizar los puntos en la sección 'points__value'
+    document.querySelector('.points__value').innerText = puntos;
+}
+
+            </script>
         </section>
     </main>
     <footer class="footer">
