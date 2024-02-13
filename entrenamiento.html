@@ -56,9 +56,14 @@
                         <span class="points__value">0</span>
                     </div>
                     <div class="guide">
-                        <h3 class="guide__title">GUIA</h3>
-                        <p class="guide__copy">Revisa la guía de nuestra maquina</p>
-                        <button class="guide__btn btn btn--white">Descargar</button>
+                        <h3 class="guide__title">GUIA DE DESCARGA</h3>
+                        <p class="guide__copy">Revisa la guía descarga de la maquina</p>
+                        <button class="guide__btn btn btn--white" onclick="window.open('https://drive.google.com/file/d/1DukFNFPUZbsYAp-MC2gir6ANXSZp0Wk2/view?usp=sharing')">Descargar</button>
+
+                        <h3 class="guide__title">GUIA DE LAS BANDERAS</h3>
+                        <p class="guide__copy">Revisa la guía sobre cómo encontrar la bandera</p>
+                        <button class="guide__btn btn btn--white" onclick="window.open('https://drive.google.com/file/d/12WnLoJxVyIL3wgN-1g0qSEVb5kJl_4vg/view?usp=sharing')">Descargar</button>
+
                     </div>
                 </div>
             </div>
@@ -71,29 +76,13 @@
                     <div class="form__item">
                         <label class="form__label" for="ssh">
                             <span class="form__label--title">Easy</span>
-                            <span class="form__label--points">150 pts C/D</span>
+                            <span class="form__label--points">1000 pts C/D</span>
                         </label>
-                        <input class="form__input" type="text" name="ssh" placeholder="Pista SSH" id="ssh">
+                        <input class="form__input" type="text" name="ssh" placeholder="Pista servicios" id="ssh">
                     </div>
                 </div>
-                <div class="form__row">
-                    <div class="form__item">
-                        <label class="form__label" for="contraseña">
-                            <span class="form__label--title">Medium</span>
-                            <span class="form__label--points">300 pts C/D</span>
-                        </label>
-                        <input class="form__input" type="text" name="contraseña" placeholder="Pista Contraseña" id="contraseña">
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__item">
-                        <label class="form__label" for="exploit">
-                            <span class="form__label--title">Hard</span>
-                            <span class="form__label--points">550 pts C/D</span>
-                        </label>
-                        <input class="form__input" type="text" name="exploit" placeholder="Pista Exploit" id="exploit">
-                    </div>
-                </div>
+                
+                
                
                 <input type="button" class="practice__btn btn btn--white button" onclick="comprobarRespuestas()" value="Comprobar Respuestas">
             
@@ -116,9 +105,8 @@ function comprobarRespuestas() {
     
     // Definir las respuestas correctas y sus respectivos puntos
     var respuestasCorrectas = {
-        'ssh': { respuesta: '1234', puntos: 150 },
-        'contraseña': { respuesta: '123', puntos: 300 },
-        'exploit': { respuesta: '12', puntos: 550 }
+        'ssh': { respuesta: 'FLAG{N7 KSA_01}', puntos: 1000 },
+
     };
 
     // Reiniciar los puntos antes de evaluar las respuestas
