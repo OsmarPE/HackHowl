@@ -43,7 +43,9 @@
         <section class="test">
             <div class="container">
                 <h1 class="test__title subtitle"> ZONA DE <span class="subtitle--red">ENTRENAMIENTO</span></h1>
-                <p class="test__copy">Practica con una de nuestras máquinas, pon a prueba tus habilidades y resuelve este desafio.</p>
+                <p class="test__copy">Practica en una de nuestras máquinas con vulnerabilidades, pon a prueba tus habilidades como hacker ético y acepta el desafío de Captura la Bandera.</p>
+                                <p class="test__copy">¿No estás familiarizado con el concepto de Captura la Bandera? Es un juego donde debes demostrar tus habilidades resolviendo desafíos de seguridad y superando obstáculos para alcanzar y capturar la 'bandera'. Enfréntate a este reto y descubre un emocionante mundo de ciberseguridad mientras perfeccionas tus destrezas en un entorno controlado.</p>
+
                 <div class="test__cards">
                     <div class="practice">
                         <h3 class="practice__title">ISO PARA PRACTICAR</h3>
@@ -66,7 +68,7 @@
                     <div class="guide">
                         
 
-                        <h3 class="guide__title">GUIA DE LAS BANDERAS</h3>
+                        <h3 class="guide__title">GUIA DE LA BANDERA</h3>
                         <p class="guide__copy">Revisa la guía sobre cómo encontrar la bandera</p>
                         <button class="guide__btn btn btn--white" onclick="window.open('https://drive.google.com/file/d/12WnLoJxVyIL3wgN-1g0qSEVb5kJl_4vg/view?usp=sharing')">Descargar</button>
 
@@ -75,8 +77,8 @@
             </div>
         </section>
         <section class="flag">
-            <h2 class="flag__title subtitle">BANDERAS</h2>
-            <p class="flag__copy">Encuentra las banderas de la máquina y escribe las respuestas</p>
+            <h2 class="flag__title subtitle">BANDERA</h2>
+            <p class="flag__copy">Encuentra la bandera de la máquina y escribe las respuestas</p>
             <form class="form">
                 <div class="form__row">
                     <div class="form__item">
@@ -84,7 +86,7 @@
                             <span class="form__label--title">Responde</span>
                             <span class="form__label--points">1000 pts C/D</span>
                         </label>
-                        <input class="form__input" type="text" name="ssh" placeholder="Pista servicios" id="ssh">
+                        <input class="form__input" type="text" name="servicios" placeholder="Pista servicios" id="servicios">
                     </div>
                 </div>
                 
@@ -98,57 +100,66 @@
                 <div id="respuestaCorrecta" style="color: rgb(45, 230, 70)(0, 255, 34);"></div>
             </form>
             
-            
-            
             <script>
-                var puntos = 0; // Inicializamos los puntos
+    var puntos = 0; // Inicializamos los puntos
 
-function comprobarRespuestas() {
-    // Obtener los elementos del formulario
-    var form = document.querySelector('.form');
-    var inputs = form.querySelectorAll('.form__input');
-    var labels = form.querySelectorAll('.form__label');
-    
-    // Definir las respuestas correctas y sus respectivos puntos
-    var respuestasCorrectas = {
-        'ssh': { respuesta: 'FLAG{N7 KSA_01}', puntos: 1000 },
+    function comprobarRespuestas() {
+        // Obtener los elementos del formulario
+        var form = document.querySelector('.form');
+        var inputs = form.querySelectorAll('.form__input');
+        var labels = form.querySelectorAll('.form__label');
 
-    };
+        // Definir las respuestas correctas y sus respectivos puntos
+        var respuestasCorrectas = {
+            'servicios': { respuesta: 'FLAG{N7 KSA_01}', puntos: 1000 },
+        };
 
-    // Reiniciar los puntos antes de evaluar las respuestas
-    puntos = 0;
+        // Reiniciar los puntos antes de evaluar las respuestas
+        puntos = 0;
 
-    // Iterar sobre los elementos del formulario
-    inputs.forEach(function(input, index) {
-        var nombreCampo = input.name;
-        var respuestaUsuario = input.value;
-        var respuestaCorrectaCampo = respuestasCorrectas[nombreCampo].respuesta;
+        // Iterar sobre los elementos del formulario
+        inputs.forEach(function (input, index) {
+            var nombreCampo = input.name;
+            var respuestaUsuario = input.value;
+            var respuestaCorrectaCampo = respuestasCorrectas[nombreCampo].respuesta;
 
-        // Comprobar la respuesta
-        if (respuestaUsuario === respuestaCorrectaCampo) {
-            // Sumar los puntos si la respuesta es correcta
-            puntos += respuestasCorrectas[nombreCampo].puntos;
+            // Comprobar la respuesta
+            if (respuestaUsuario === respuestaCorrectaCampo) {
+                // Sumar los puntos si la respuesta es correcta
+                puntos += respuestasCorrectas[nombreCampo].puntos;
 
-            // Mostrar mensaje de respuesta correcta
-            var mensajeRespuestaCorrecta = document.getElementById('respuestaCorrecta');
-            mensajeRespuestaCorrecta.innerText = 'Respuesta correcta ( ' + nombreCampo + ' )';
-            setTimeout(function() {
-                mensajeRespuestaCorrecta.innerText = '';
-            }, 3000);
-        } else {
-            
-        }
+                // Mostrar mensaje de respuesta correcta
+                var mensajeRespuestaCorrecta = document.getElementById('respuestaCorrecta');
+                mensajeRespuestaCorrecta.innerText = 'Respuesta correcta ( ' + nombreCampo + ' )';
+                setTimeout(function () {
+                    mensajeRespuestaCorrecta.innerText = '';
+                }, 3000);
+            } else {
 
-        // Actualizar el texto del label con la respuesta correcta
-        var puntosLabel = respuestasCorrectas[nombreCampo].puntos;
-        labels[index].querySelector('.form__label--points').innerText = puntosLabel + ' pts C/D';
+            }
+
+            // Actualizar el texto del label con la respuesta correcta
+            var puntosLabel = respuestasCorrectas[nombreCampo].puntos;
+            labels[index].querySelector('.form__label--points').innerText = puntosLabel + ' pts C/D';
+        });
+
+        // Actualizar los puntos en la sección 'points__value'
+        document.querySelector('.points__value').innerText = puntos;
+    }
+
+    // Evitar el envío del formulario al presionar Enter en el campo de entrada
+    document.addEventListener("DOMContentLoaded", function () {
+        var serviciosInput = document.getElementById('servicios');
+        serviciosInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                comprobarRespuestas();
+            }
+        });
     });
-
-    // Actualizar los puntos en la sección 'points__value'
-    document.querySelector('.points__value').innerText = puntos;
-}
-
-            </script>
+</script>
+         
+         
         </section>
     </main>
     <footer class="footer">
