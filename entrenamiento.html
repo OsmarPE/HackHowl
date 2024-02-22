@@ -101,62 +101,7 @@
             </form>
             
             <script>
-    var puntos = 0; // Inicializamos los puntos
-
-    function comprobarRespuestas() {
-        // Obtener los elementos del formulario
-        var form = document.querySelector('.form');
-        var inputs = form.querySelectorAll('.form__input');
-        var labels = form.querySelectorAll('.form__label');
-
-        // Definir las respuestas correctas y sus respectivos puntos
-        var respuestasCorrectas = {
-            'servicios': { respuesta: 'FLAG{N7 KSA_01}', puntos: 1000 },
-        };
-
-        // Reiniciar los puntos antes de evaluar las respuestas
-        puntos = 0;
-
-        // Iterar sobre los elementos del formulario
-        inputs.forEach(function (input, index) {
-            var nombreCampo = input.name;
-            var respuestaUsuario = input.value;
-            var respuestaCorrectaCampo = respuestasCorrectas[nombreCampo].respuesta;
-
-            // Comprobar la respuesta
-            if (respuestaUsuario === respuestaCorrectaCampo) {
-                // Sumar los puntos si la respuesta es correcta
-                puntos += respuestasCorrectas[nombreCampo].puntos;
-
-                // Mostrar mensaje de respuesta correcta
-                var mensajeRespuestaCorrecta = document.getElementById('respuestaCorrecta');
-                mensajeRespuestaCorrecta.innerText = 'Respuesta correcta ( ' + nombreCampo + ' )';
-                setTimeout(function () {
-                    mensajeRespuestaCorrecta.innerText = '';
-                }, 3000);
-            } else {
-
-            }
-
-            // Actualizar el texto del label con la respuesta correcta
-            var puntosLabel = respuestasCorrectas[nombreCampo].puntos;
-            labels[index].querySelector('.form__label--points').innerText = puntosLabel + ' pts C/D';
-        });
-
-        // Actualizar los puntos en la sección 'points__value'
-        document.querySelector('.points__value').innerText = puntos;
-    }
-
-    // Evitar el envío del formulario al presionar Enter en el campo de entrada
-    document.addEventListener("DOMContentLoaded", function () {
-        var serviciosInput = document.getElementById('servicios');
-        serviciosInput.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                comprobarRespuestas();
-            }
-        });
-    });
+var _0x4c624e=_0x3dd8;function _0x3dd8(_0x1e7eaa,_0x470063){var _0x288284=_0x2882();return _0x3dd8=function(_0x3dd858,_0x5e004d){_0x3dd858=_0x3dd858-0x118;var _0x12bb2d=_0x288284[_0x3dd858];return _0x12bb2d;},_0x3dd8(_0x1e7eaa,_0x470063);}function _0x2882(){var _0x14855=['querySelector','innerText','servicios','7052390ulCbwx','.form','getElementById','4552GOHZqw','3460148ohMoiX','querySelectorAll','value','DOMContentLoaded','56067nskiYE','key','preventDefault','puntos','respuesta','.form__label','26797392AifdIQ','6146lPhIVH','.form__label--points','.form__input','28dLscYN','11215578MUtwGX','addEventListener','\x20pts\x20C/D','keydown','139057ARvLIj','forEach'];_0x2882=function(){return _0x14855;};return _0x2882();}(function(_0x1fff93,_0x29f6ff){var _0x2f7410=_0x3dd8,_0x3b1898=_0x1fff93();while(!![]){try{var _0x43f8f2=-parseInt(_0x2f7410(0x11c))/0x1+-parseInt(_0x2f7410(0x125))/0x2+parseInt(_0x2f7410(0x129))/0x3*(-parseInt(_0x2f7410(0x133))/0x4)+-parseInt(_0x2f7410(0x121))/0x5+parseInt(_0x2f7410(0x118))/0x6+parseInt(_0x2f7410(0x130))/0x7*(-parseInt(_0x2f7410(0x124))/0x8)+parseInt(_0x2f7410(0x12f))/0x9;if(_0x43f8f2===_0x29f6ff)break;else _0x3b1898['push'](_0x3b1898['shift']());}catch(_0xf16c04){_0x3b1898['push'](_0x3b1898['shift']());}}}(_0x2882,0xe4b21));var puntos=0x0;function comprobarRespuestas(){var _0x421032=_0x3dd8,_0x959374=document['querySelector'](_0x421032(0x122)),_0x11baf0=_0x959374[_0x421032(0x126)](_0x421032(0x132)),_0x1e9d7c=_0x959374[_0x421032(0x126)](_0x421032(0x12e)),_0x3127c0={'servicios':{'respuesta':'FLAG{N7\x20KSA_01}','puntos':0x3e8}};puntos=0x0,_0x11baf0[_0x421032(0x11d)](function(_0x264d6c,_0x4f918c){var _0x41012f=_0x421032,_0x280ede=_0x264d6c['name'],_0x13305c=_0x264d6c[_0x41012f(0x127)],_0x33a950=_0x3127c0[_0x280ede][_0x41012f(0x12d)];if(_0x13305c===_0x33a950){puntos+=_0x3127c0[_0x280ede][_0x41012f(0x12c)];var _0x4267df=document[_0x41012f(0x123)]('respuestaCorrecta');_0x4267df[_0x41012f(0x11f)]='Respuesta\x20correcta\x20(\x20'+_0x280ede+'\x20)',setTimeout(function(){var _0x9b7377=_0x41012f;_0x4267df[_0x9b7377(0x11f)]='';},0xbb8);}else{}var _0x289377=_0x3127c0[_0x280ede][_0x41012f(0x12c)];_0x1e9d7c[_0x4f918c][_0x41012f(0x11e)](_0x41012f(0x131))['innerText']=_0x289377+_0x41012f(0x11a);}),document[_0x421032(0x11e)]('.points__value')[_0x421032(0x11f)]=puntos;}document[_0x4c624e(0x119)](_0x4c624e(0x128),function(){var _0x2af846=_0x4c624e,_0xe5d0fe=document[_0x2af846(0x123)](_0x2af846(0x120));_0xe5d0fe[_0x2af846(0x119)](_0x2af846(0x11b),function(_0x114833){var _0x44eed8=_0x2af846;_0x114833[_0x44eed8(0x12a)]==='Enter'&&(_0x114833[_0x44eed8(0x12b)](),comprobarRespuestas());});});
 </script>
          
          
